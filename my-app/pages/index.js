@@ -17,6 +17,7 @@ export default function Home() {
   // Create a reference to the Web3 Modal (used for connecting to Metamask) which persists as long as the page is open
   const web3ModalRef = useRef();
 
+
   /**
    * Returns a Provider or Signer object representing the Ethereum RPC with or without the
    * signing capabilities of metamask attached
@@ -178,16 +179,34 @@ export default function Home() {
   useEffect(() => {
     // if wallet is not connected, create a new instance of Web3Modal and connect the MetaMask wallet
     if (!walletConnected) {
-      // Assign the Web3Modal class to the reference object by setting it's `current` value
-      // The `current` value is persisted throughout as long as this page is open
       web3ModalRef.current = new Web3Modal({
-        network: "rinkeby",
-        providerOptions: {},
-        disableInjectedProvider: false,
+        providerOptions: [
+          {
+            provider: web3.currentProvider,
+            networkId: "rinkeby",
+            preferred: true
+          }
+        ],
+        disableMetaMask: true,
+        theme: "dark"
       });
       connectWallet();
     }
   }, [walletConnected]);
+
+  // useEffect(() => {
+  //   // if wallet is not connected, create a new instance of Web3Modal and connect the MetaMask wallet
+  //   if (!walletConnected) {
+  //     // Assign the Web3Modal class to the reference object by setting it's `current` value
+  //     // The `current` value is persisted throughout as long as this page is open
+  //     web3ModalRef.current = new Web3Modal({
+  //       network: "rinkeby",
+  //       providerOptions: {},
+  //       disableInjectedProvider: false,
+  //     });
+  //     connectWallet();
+  //   }
+  // }, [walletConnected]);
 
   return (
     <div>
