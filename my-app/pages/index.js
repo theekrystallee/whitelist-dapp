@@ -131,18 +131,60 @@ export default function Home() {
     connectWallet: Connects the MetaMask wallet
   */
   const connectWallet = async () => {
+    // Create a new instance of the Web3Modal
+    web3ModalRef.current = new Web3Modal({
+      // We will use the rinkeby network as the provider
+      network: "rinkeby",
+      // We will use the MetaMask logo as our wallet icon
+      providerOptions: {
+        walletconnect: {
+          packages: ["ethereum-walletconnect"],
+        },
+      },
+    });
+    // Connect to the wallet
+    const provider = await web3ModalRef.current.connect();
+    // Create a new instance of the Provider
+    const web3Provider = new providers.Web3Provider(provider);
+    // Get the address associated to the signer which is connected to  MetaMask
+    const address = await web3Provider.getSigner().getAddress();
+    // Set the walletConnected to true
+    setWalletConnected(true);
+    // Check if the address is in the whitelist
+    await checkIfAddressInWhitelist();
+    // Get the number of addresses in the whitelist
+    await getNumberOfWhitelisted();
+  };
+  
+
+  // const connectWallet = async () => {
+  //   try {
+  //     // Get the provider from web3Modal, which in our case is MetaMask
+  //     // When used for the first time, it prompts the user to connect their wallet
+  //     await getProviderOrSigner();
+  //     setWalletConnected(true);
+
+  //     checkIfAddressInWhitelist();
+  //     getNumberOfWhitelisted();
+  //   } catch (err) {
+  //     console.error(err);
+  //   }
+  // };
+
+  /*  
+    connectWallet: Connects the MetaMask wallet
+  */
+  const disconnectWallet = async () => {
     try {
       // Get the provider from web3Modal, which in our case is MetaMask
       // When used for the first time, it prompts the user to connect their wallet
       await getProviderOrSigner();
-      setWalletConnected(true);
-
-      checkIfAddressInWhitelist();
-      getNumberOfWhitelisted();
+      setWalletConnected(false);
     } catch (err) {
       console.error(err);
     }
   };
+
 
   /*
     renderButton: Returns a button based on the state of the dapp
@@ -179,34 +221,16 @@ export default function Home() {
   useEffect(() => {
     // if wallet is not connected, create a new instance of Web3Modal and connect the MetaMask wallet
     if (!walletConnected) {
+      // Assign the Web3Modal class to the reference object by setting it's `current` value
+      // The `current` value is persisted throughout as long as this page is open
       web3ModalRef.current = new Web3Modal({
-        providerOptions: [
-          {
-            provider: web3.currentProvider,
-            networkId: "rinkeby",
-            preferred: true
-          }
-        ],
-        disableMetaMask: true,
-        theme: "dark"
+        network: "rinkeby",
+        providerOptions: {},
+        disableInjectedProvider: false,
       });
       connectWallet();
     }
   }, [walletConnected]);
-
-  // useEffect(() => {
-  //   // if wallet is not connected, create a new instance of Web3Modal and connect the MetaMask wallet
-  //   if (!walletConnected) {
-  //     // Assign the Web3Modal class to the reference object by setting it's `current` value
-  //     // The `current` value is persisted throughout as long as this page is open
-  //     web3ModalRef.current = new Web3Modal({
-  //       network: "rinkeby",
-  //       providerOptions: {},
-  //       disableInjectedProvider: false,
-  //     });
-  //     connectWallet();
-  //   }
-  // }, [walletConnected]);
 
   return (
     <div>
