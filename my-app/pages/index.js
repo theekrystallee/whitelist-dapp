@@ -17,7 +17,6 @@ export default function Home() {
   // Create a reference to the Web3 Modal (used for connecting to Metamask) which persists as long as the page is open
   const web3ModalRef = useRef();
 
-
   /**
    * Returns a Provider or Signer object representing the Ethereum RPC with or without the
    * signing capabilities of metamask attached
@@ -131,60 +130,18 @@ export default function Home() {
     connectWallet: Connects the MetaMask wallet
   */
   const connectWallet = async () => {
-    // Create a new instance of the Web3Modal
-    web3ModalRef.current = new Web3Modal({
-      // We will use the rinkeby network as the provider
-      network: "rinkeby",
-      // We will use the MetaMask logo as our wallet icon
-      providerOptions: {
-        walletconnect: {
-          packages: ["ethereum-walletconnect"],
-        },
-      },
-    });
-    // Connect to the wallet
-    const provider = await web3ModalRef.current.connect();
-    // Create a new instance of the Provider
-    const web3Provider = new providers.Web3Provider(provider);
-    // Get the address associated to the signer which is connected to  MetaMask
-    const address = await web3Provider.getSigner().getAddress();
-    // Set the walletConnected to true
-    setWalletConnected(true);
-    // Check if the address is in the whitelist
-    await checkIfAddressInWhitelist();
-    // Get the number of addresses in the whitelist
-    await getNumberOfWhitelisted();
-  };
-  
-
-  // const connectWallet = async () => {
-  //   try {
-  //     // Get the provider from web3Modal, which in our case is MetaMask
-  //     // When used for the first time, it prompts the user to connect their wallet
-  //     await getProviderOrSigner();
-  //     setWalletConnected(true);
-
-  //     checkIfAddressInWhitelist();
-  //     getNumberOfWhitelisted();
-  //   } catch (err) {
-  //     console.error(err);
-  //   }
-  // };
-
-  /*  
-    connectWallet: Connects the MetaMask wallet
-  */
-  const disconnectWallet = async () => {
     try {
       // Get the provider from web3Modal, which in our case is MetaMask
       // When used for the first time, it prompts the user to connect their wallet
       await getProviderOrSigner();
-      setWalletConnected(false);
+      setWalletConnected(true);
+
+      checkIfAddressInWhitelist();
+      getNumberOfWhitelisted();
     } catch (err) {
       console.error(err);
     }
   };
-
 
   /*
     renderButton: Returns a button based on the state of the dapp
