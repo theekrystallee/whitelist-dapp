@@ -198,12 +198,12 @@ export default function Home() {
       </Head>
       <div className={styles.main}>
         <div>
-          <h1 className={styles.title}>Welcome to Crypto Devs!</h1>
+          <h1 className={styles.title}>gm, welcome to web3 devs</h1>
           <div className={styles.description}>
-            An NFT collection for developers in Web3
+            a nft collection for developers in web3
           </div>
           <div className={styles.description}>
-            {numberOfWhitelisted} have already joined the Whitelist
+            {numberOfWhitelisted} have already joined the whitelist
           </div>
           {renderButton()}
         </div>
@@ -213,7 +213,7 @@ export default function Home() {
       </div>
 
       <footer className={styles.footer}>
-        Made with &#10084; by Crypto Devs
+        made with &#10084; by web3 devs
       </footer>
     </div>
   );
