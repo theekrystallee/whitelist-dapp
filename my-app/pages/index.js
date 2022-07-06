@@ -200,7 +200,7 @@ export default function Home() {
         <div>
           <h1 className={styles.title}>Welcome to Crypto Devs!</h1>
           <div className={styles.description}>
-            Its an NFT collection for developers in Crypto.
+            An NFT collection for developers in Web3
           </div>
           <div className={styles.description}>
             {numberOfWhitelisted} have already joined the Whitelist

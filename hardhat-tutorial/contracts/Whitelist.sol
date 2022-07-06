@@ -38,5 +38,11 @@ contract Whitelist {
 
 }
 
+// deployed contract address 7/2/22 1:37pm
+// 0x6c574180d1C5Be5f79f50377Ab9d7f328e392c74
+
+
+
+
 // deployed address
 // 0x66aADd07D35B1433754eb509978c0a3DC7D5fbD6
