@@ -151,7 +151,7 @@ export default function Home() {
       if (joinedWhitelist) {
         return (
           <div className={styles.description}>
-            Thanks for joining the Whitelist!
+            tysm for joining the whitelist!
           </div>
         );
       } else if (loading) {
@@ -159,14 +159,14 @@ export default function Home() {
       } else {
         return (
           <button onClick={addAddressToWhitelist} className={styles.button}>
-            Join the Whitelist
+            join the whitelist
           </button>
         );
       }
     } else {
       return (
         <button onClick={connectWallet} className={styles.button}>
-          Connect your wallet
+          connect your wallet
         </button>
       );
     }
@@ -198,9 +198,9 @@ export default function Home() {
       </Head>
       <div className={styles.main}>
         <div>
-          <h1 className={styles.title}>gm, welcome to web3 devs</h1>
+          <h1 className={styles.title}>welcome to web3 baddies</h1>
           <div className={styles.description}>
-            a nft collection for developers in web3
+            a nft collection celebrating women in web3
           </div>
           <div className={styles.description}>
             {numberOfWhitelisted} have already joined the whitelist
@@ -213,7 +213,7 @@ export default function Home() {
       </div>
 
       <footer className={styles.footer}>
-        made with &#10084; by web3 devs
+        made with &#10084; by web3 baddies
       </footer>
     </div>
   );
