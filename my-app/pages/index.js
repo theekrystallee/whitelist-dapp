@@ -192,7 +192,7 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>whitelist dApp</title>
+        <title>Whitelist Dapp</title>
         <meta name="description" content="Whitelist-Dapp" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
