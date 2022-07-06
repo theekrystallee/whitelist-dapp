@@ -200,7 +200,7 @@ export default function Home() {
         <div>
           <h1 className={styles.title}>welcome to web3 baddies</h1>
           <div className={styles.description}>
-            a nft collection celebrating women in web3
+            an nft collection celebrating women of web3
           </div>
           <div className={styles.description}>
             {numberOfWhitelisted} have already joined the whitelist
