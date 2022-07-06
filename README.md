@@ -1,8 +1,8 @@
-# Whitelist-Dapp
+# whitelist dApp for an nft launch
 
-You are launching your NFT collection named `Crypto Devs`. You want to give your early supporters access to a whitelist for your collection, so here you are creating a whitelist dapp for `Crypto Devs`
+You are launching your NFT collection named `web3 baddies`. You want to give your early supporters access to a whitelist for your collection, so here you are creating a whitelist dapp for `web3 baddies`
 
-![](https://i.imgur.com/zgY0TGo.png)
+<img width="1145" alt="Screen Shot 2022-07-06 at 11 08 56 AM" src="https://user-images.githubusercontent.com/56278409/177615273-1e27fcc5-6144-4e7b-84c7-d813feef8f12.png">
 
 ## Requirements
 
