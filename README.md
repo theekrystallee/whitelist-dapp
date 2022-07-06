@@ -1,8 +1,8 @@
-# Whitelist-Dapp
+# whitelist dApp for an nft launch
 
-You are launching your NFT collection named `Crypto Devs`. You want to give your early supporters access to a whitelist for your collection, so here you are creating a whitelist dapp for `Crypto Devs`
+You are launching your NFT collection named `web3 baddies`. You want to give your early supporters access to a whitelist for your collection, so here you are creating a whitelist dapp for `web3 baddies`
 
-![](https://i.imgur.com/zgY0TGo.png)
+<img width="1145" alt="Screen Shot 2022-07-06 at 11 08 56 AM" src="https://user-images.githubusercontent.com/56278409/177615273-1e27fcc5-6144-4e7b-84c7-d813feef8f12.png">
 
 ## Requirements
 
@@ -26,21 +26,22 @@ Lets start building 🚀
 To build the smart contract we will be using [Hardhat](https://hardhat.org/).
 Hardhat is an Ethereum development environment and framework designed for full stack development in Solidity. In simple words you can write your smart contract, deploy them, run tests, and debug your code.
 
+- First, you need to create a Whitelist-Daap folder where the Hardhat project and your Next.js app will later go
+- Open up a terminal and execute these commands
 
+```bash
+mkdir Whitelist-Dapp
+cd Whitelist-Dapp
+```
 
- - First, you need to create a Whitelist-Daap folder where the Hardhat project and your Next.js app will later go
- - Open up a terminal and execute these commands
-  ```bash
-  mkdir Whitelist-Dapp
-  cd Whitelist-Dapp
-  ```
- - Then, in Whitelist-Daap folder, you will set up Hardhat project 
-  ```bash
-  mkdir hardhat-tutorial
-  cd hardhat-tutorial
-  npm init --yes
-  npm install --save-dev hardhat
-  ```
+- Then, in Whitelist-Daap folder, you will set up Hardhat project
+
+```bash
+mkdir hardhat-tutorial
+cd hardhat-tutorial
+npm init --yes
+npm install --save-dev hardhat
+```
 
 - In the same directory where you installed Hardhat run:
 
@@ -122,7 +123,7 @@ npm install --save-dev @nomiclabs/hardhat-waffle ethereum-waffle chai @nomiclabs
     // here we deploy the contract
     const deployedWhitelistContract = await whitelistContract.deploy(10);
     // 10 is the Maximum number of whitelisted addresses allowed
-    
+
     // Wait for it to finish deploying
     await deployedWhitelistContract.deployed();
 
@@ -188,7 +189,7 @@ npm install --save-dev @nomiclabs/hardhat-waffle ethereum-waffle chai @nomiclabs
   ```bash
      npx hardhat compile
   ```
-  
+
 - To deploy, open up a terminal pointing at`hardhat-tutorial` directory and execute this command
   ```bash
   npx hardhat run scripts/deploy.js --network rinkeby
@@ -224,7 +225,7 @@ npm install --save-dev @nomiclabs/hardhat-waffle ethereum-waffle chai @nomiclabs
 - Now go to `http://localhost:3000`, your app should be running 🤘
 
 - Now lets install [Web3Modal library](https://github.com/Web3Modal/web3modal). Web3Modal is an easy to use library to help developers easily allow their users to connect to your dApps with all sorts of different wallets. By default Web3Modal Library supports injected providers like (Metamask, Dapper, Gnosis Safe, Frame, Web3 Browsers, etc) and WalletConnect, You can also easily configure the library to support Portis, Fortmatic, Squarelink, Torus, Authereum, D'CENT Wallet and Arkane.
-(Here's a live example on [Codesandbox.io](https://codesandbox.io/s/j43b10))
+  (Here's a live example on [Codesandbox.io](https://codesandbox.io/s/j43b10))
 
 - Open up a terminal pointing at`my-app` directory and execute this command
 
@@ -395,7 +396,8 @@ npm install --save-dev @nomiclabs/hardhat-waffle ethereum-waffle chai @nomiclabs
           provider
         );
         // call the numAddressesWhitelisted from the contract
-        const _numberOfWhitelisted = await whitelistContract.numAddressesWhitelisted();
+        const _numberOfWhitelisted =
+          await whitelistContract.numAddressesWhitelisted();
         setNumberOfWhitelisted(_numberOfWhitelisted);
       } catch (err) {
         console.error(err);
