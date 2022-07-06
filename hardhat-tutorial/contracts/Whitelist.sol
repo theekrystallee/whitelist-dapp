@@ -3,7 +3,7 @@ pragma solidity ^0.8.0;
 
 contract Whitelist {
     // Max number of whitelisted addresses allowed
-    uint public maxWhitelistSize;
+    uint public maxWhitelistedAddresses;
 
     // Create a mapping of whitelistedAddresses
     // if an address is whitelisted, we would set it to true, it is false by default for all other addresses.
@@ -46,3 +46,5 @@ contract Whitelist {
 
 // deployed address
 // 0x66aADd07D35B1433754eb509978c0a3DC7D5fbD6
+
+// 0x3548B1C6d4657b282420251c057a9BdA7521B952

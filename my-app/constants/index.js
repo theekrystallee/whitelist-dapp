@@ -74,4 +74,4 @@ export const abi = [
         "deployedLinkReferences": {}
       }      
   ];
-export const WHITELIST_CONTRACT_ADDRESS = "0xe564B230E27C58Cfbd2E13a3067fe825bFC9e59c";
+export const WHITELIST_CONTRACT_ADDRESS = "0x3548B1C6d4657b282420251c057a9BdA7521B952";
